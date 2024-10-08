@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // Judul Tempat Wisata
+         
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -29,14 +29,14 @@ class MyApp extends StatelessWidget {
               ),
               SizedBox(height: 16),
 
-              // Gambar Tempat Wisata
+             
               Image.network(
                 'https://disporapar.cilacapkab.go.id/wp-content/uploads/2020/09/Samudera_mandiri_01-300x200.jpg', 
                 height: 200,
-                fit: BoxFit.cover, // Mengatur tampilan gambar agar lebih baik
+                fit: BoxFit.cover, 
               ),
               SizedBox(height: 16),
-              // Deskripsi Tempat Wisata
+              
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
@@ -53,10 +53,9 @@ class MyApp extends StatelessWidget {
               ),
               SizedBox(height: 16),
 
-              // Tombol Kunjungi
               ElevatedButton(
                 onPressed: () {
-                  // Tambahkan kode tindakan di sini!
+            
                 },
                 child: Text('Kunjungi Sekarang'),
               ),
