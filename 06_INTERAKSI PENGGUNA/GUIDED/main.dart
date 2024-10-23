@@ -14,15 +14,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '2211104071',
+      title: '2211104081',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: //myPackage(),
-          //myTabbar(),
+      home:
+          myPackage(),
+          myTabbar(),
           myNavbar(),
     );
   }
