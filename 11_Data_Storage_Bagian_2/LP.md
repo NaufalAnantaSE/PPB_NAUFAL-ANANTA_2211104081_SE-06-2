@@ -142,18 +142,17 @@ class _MyNotificationScreenState extends State<MyNotificationScreen> {
   @override
   void initState() {
     super.initState();
-    // Membuat pengaturan inisialisasi notifikasi untuk Android
+
     var initializationSettingsAndroid =
         const AndroidInitializationSettings('@mipmap/ic_launcher');
     var initializationSettings =
         InitializationSettings(android: initializationSettingsAndroid);
     FlutterLocalNotificationsPlugin().initialize(initializationSettings);
 
-    // Mendengarkan pesan saat aplikasi aktif
+
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
-      // Jika notifikasi tersedia, tampilkan menggunakan notifikasi lokal
       if (notification != null && android != null) {
         FlutterLocalNotificationsPlugin().show(
           notification.hashCode, 
@@ -196,11 +195,10 @@ class _MyNotificationScreenState extends State<MyNotificationScreen> {
     getToken();
   }
 
-  // Metode untuk mendapatkan token FCM
   void getToken() async {
     token = await FirebaseMessaging.instance
-        .getToken(); // Mendapatkan token FCM perangkat
-    print('FCM Token: $token'); // Menampilkan token di log
+        .getToken(); 
+    print('FCM Token: $token'); 
   }
 
   Widget build(BuildContext context) {
