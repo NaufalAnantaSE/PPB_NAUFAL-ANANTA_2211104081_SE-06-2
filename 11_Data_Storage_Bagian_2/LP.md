@@ -96,10 +96,10 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 }
 
 const AndroidNotificationChannel channel = AndroidNotificationChannel(
-  'high_importance_channel', // ID Channel
-  'High Importance Notifications', // Nama Channel
-  description: 'This channel is used for important notifications.', // Deskripsi
-  importance: Importance.high, // Prioritas
+  'high_importance_channel', 
+  'High Importance Notifications', 
+  description: 'This channel is used for important notifications.', 
+  importance: Importance.high, 
 );
 
 class MyApp extends StatelessWidget {
@@ -156,9 +156,9 @@ class _MyNotificationScreenState extends State<MyNotificationScreen> {
       // Jika notifikasi tersedia, tampilkan menggunakan notifikasi lokal
       if (notification != null && android != null) {
         FlutterLocalNotificationsPlugin().show(
-          notification.hashCode, // ID notifikasi (hashCode untuk unik)
-          notification.title, // Judul notifikasi
-          notification.body, // Isi notifikasi
+          notification.hashCode, 
+          notification.title, 
+          notification.body, 
           NotificationDetails(
             android: AndroidNotificationDetails(
               channel.id,
@@ -172,21 +172,20 @@ class _MyNotificationScreenState extends State<MyNotificationScreen> {
       }
     });
 
-    // Menangani aksi ketika notifikasi dibuka
+
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
-      // Jika notifikasi tersedia, tampilkan dialog
       if (notification != null && android != null) {
         showDialog(
           context: context,
           builder: (_) {
             return AlertDialog(
-              title: Text(notification.title ?? ""), // Judul dialog
+              title: Text(notification.title ?? ""), 
               content: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text(notification.body ?? "")], // Isi dialog
+                  children: [Text(notification.body ?? "")], 
                 ),
               ),
             );
@@ -194,7 +193,6 @@ class _MyNotificationScreenState extends State<MyNotificationScreen> {
         );
       }
     });
-    // Memanggil metode untuk mengambil token FCM perangkat
     getToken();
   }
 
